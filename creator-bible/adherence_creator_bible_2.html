@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adherence Studio — Creator Content Bible</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1C2B1A;
+    --forest-mid: #2A3D28;
+    --forest-light: #3D5C3A;
+    --cream: #F4EFE4;
+    --cream-dark: #E8E0CE;
+    --cream-muted: #D4CAB5;
+    --gold: #B8975A;
+    --gold-light: #D4AF72;
+    --white: #FDFAF5;
+    --ink: #1C2B1A;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', 'Courier New', monospace;
+    --display: 'DM Serif Display', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--forest);
+    font-family: var(--serif);
+    overflow-x: hidden;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: var(--forest);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(244,239,228,0.07);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(244,239,228,0.05);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cover-logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--cream-muted);
+    text-transform: uppercase;
+  }
+
+  .cover-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+    padding: 6px 14px;
+  }
+
+  .cover-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+
+  .cover-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .cover-title {
+    font-family: var(--display);
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.95;
+    color: var(--cream);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .cover-title span {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .cover-sub {
+    font-family: var(--display);
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1;
+    color: var(--cream);
+    font-style: italic;
+    margin-bottom: 48px;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .cover-tagline {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--cream-muted);
+    line-height: 2;
+    max-width: 520px;
+    text-transform: uppercase;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-rule {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: rgba(244,239,228,0.3);
+    letter-spacing: 0.2em;
+  }
+
+  .cover-edition {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--cream-muted);
+    letter-spacing: 0.15em;
+    text-align: right;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 100px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    padding: 100px 60px;
+  }
+
+  .section-number {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    color: var(--forest);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .section-intro {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--forest-light);
+    line-height: 2;
+    max-width: 640px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+  }
+
+  /* ─── BRAND MANIFESTO ─── */
+  .manifesto-block {
+    background: var(--forest);
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .manifesto-block::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    font-family: var(--display);
+    font-size: 300px;
+    color: rgba(184,151,90,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .manifesto-text {
+    font-family: var(--display);
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.25;
+    color: var(--cream);
+    font-style: italic;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .manifesto-text strong {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* ─── PRODUCT CARDS ─── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .product-card {
+    padding: 60px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card.elec {
+    background: var(--forest);
+    color: var(--cream);
+  }
+
+  .product-card.pre {
+    background: var(--cream-dark);
+    color: var(--forest);
+  }
+
+  .product-card-flag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .product-card.elec .product-card-flag { color: var(--gold); }
+  .product-card.pre .product-card-flag { color: var(--forest-light); }
+
+  .product-card-flag::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+  }
+
+  .product-card.elec .product-card-flag::after { background: rgba(184,151,90,0.3); }
+  .product-card.pre .product-card-flag::after { background: rgba(28,43,26,0.2); }
+
+  .product-card-name {
+    font-family: var(--display);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .product-card.elec .product-card-name { color: var(--cream); }
+  .product-card.pre .product-card-name { color: var(--forest); }
+
+  .product-card-claim {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .product-card.elec .product-card-claim { color: var(--gold); }
+  .product-card.pre .product-card-claim { color: var(--forest-light); }
+
+  .product-benefit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .product-benefit-list li {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+    display: flex;
+    gap: 14px;
+  }
+
+  .product-card.elec .product-benefit-list li { color: var(--cream-muted); }
+  .product-card.pre .product-benefit-list li { color: var(--forest-mid); }
+
+  .product-benefit-list li::before {
+    content: '→';
+    flex-shrink: 0;
+  }
+
+  .product-card.elec .product-benefit-list li::before { color: var(--gold); }
+  .product-card.pre .product-benefit-list li::before { color: var(--forest-light); }
+
+  .product-hook {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid;
+    font-family: var(--display);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .product-card.elec .product-hook {
+    border-color: rgba(184,151,90,0.25);
+    color: var(--cream);
+  }
+
+  .product-card.pre .product-hook {
+    border-color: rgba(28,43,26,0.15);
+    color: var(--forest);
+  }
+
+  /* ─── CONTENT FRAMEWORK ─── */
+  .framework-strip {
+    background: var(--forest);
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    overflow-x: auto;
+  }
+
+  .framework-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .framework-num {
+    font-family: var(--mono);
+    font-size: 36px;
+    color: rgba(244,239,228,0.12);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .framework-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    line-height: 2;
+  }
+
+  .framework-label strong {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  .framework-arrow {
+    color: rgba(184,151,90,0.4);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ─── CONTENT PILLARS ─── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pillar-card {
+    padding: 48px 36px;
+    background: var(--white);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .pillar-card:hover {
+    background: var(--forest);
+  }
+
+  .pillar-card:hover .pillar-type,
+  .pillar-card:hover .pillar-desc,
+  .pillar-card:hover .pillar-caption,
+  .pillar-card:hover .pillar-caption-label { color: var(--cream-muted); }
+
+  .pillar-card:hover .pillar-title { color: var(--cream); }
+  .pillar-card:hover .pillar-hook { color: var(--gold); }
+
+  .pillar-type {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .pillar-title {
+    font-family: var(--display);
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--forest);
+    font-style: italic;
+    margin-bottom: 16px;
+    transition: color 0.3s;
+  }
+
+  .pillar-hook {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--forest-light);
+    line-height: 1.8;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .pillar-divider {
+    height: 1px;
+    background: var(--cream-dark);
+    margin-bottom: 24px;
+    transition: background 0.3s;
+  }
+
+  .pillar-card:hover .pillar-divider { background: rgba(244,239,228,0.15); }
+
+  .pillar-caption-label {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .pillar-desc {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.9;
+    color: var(--forest-mid);
+    transition: color 0.3s;
+  }
+
+  .pillar-caption {
+    font-family: var(--serif);
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--forest-mid);
+    transition: color 0.3s;
+  }
+
+  /* ─── SCRIPT BIBLE ─── */
+  .script-section {
+    background: var(--cream-dark);
+    padding: 100px 60px;
+  }
+
+  .script-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .script-card {
+    background: var(--white);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .script-card-header {
+    background: var(--forest);
+    padding: 28px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .script-card-title {
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .script-card-product {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: right;
+    border: 1px solid rgba(184,151,90,0.4);
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+
+  .script-card-body {
+    padding: 36px;
+  }
+
+  .script-beat {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .script-beat:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .script-beat-time {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 50px;
+  }
+
+  .script-beat-content {
+    flex: 1;
+  }
+
+  .script-beat-label {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    margin-bottom: 4px;
+  }
+
+  .script-beat-text {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--forest);
+    font-style: italic;
+  }
+
+  .script-beat-direction {
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--forest-mid);
+    margin-top: 6px;
+  }
+
+  .script-hooks {
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--cream);
+    border-left: 2px solid var(--gold);
+  }
+
+  .script-hooks-label {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .script-hook-option {
+    font-family: var(--serif);
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--forest);
+    margin-bottom: 4px;
+  }
+
+  /* ─── CAPTION TOOLKIT ─── */
+  .caption-section {
+    padding: 100px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .caption-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .caption-block {
+    padding: 40px;
+    border: 1px solid var(--cream-dark);
+    position: relative;
+  }
+
+  .caption-block-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .caption-formula {
+    font-family: var(--display);
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--forest);
+    margin-bottom: 24px;
+  }
+
+  .caption-formula strong {
+    color: var(--gold);
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .caption-example {
+    background: var(--cream-dark);
+    padding: 20px;
+    font-family: var(--serif);
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--forest-mid);
+  }
+
+  .caption-example-label {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--forest-light);
+    margin-bottom: 8px;
+  }
+
+  /* ─── HASHTAG TOOLKIT ─── */
+  .hashtag-section {
+    background: var(--forest);
+    padding: 80px 60px;
+  }
+
+  .hashtag-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .hashtag-col-title {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(184,151,90,0.2);
+  }
+
+  .hashtag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hashtag-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--cream-muted);
+    background: rgba(244,239,228,0.06);
+    padding: 6px 12px;
+    border: 1px solid rgba(244,239,228,0.1);
+    line-height: 1;
+  }
+
+  .hashtag-tag.primary {
+    color: var(--gold);
+    border-color: rgba(184,151,90,0.3);
+    background: rgba(184,151,90,0.08);
+  }
+
+  /* ─── WHAT YOU GET ─── */
+  .comp-section {
+    background: var(--forest);
+    padding: 100px 60px;
+  }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .comp-item {
+    padding: 48px 40px;
+    background: rgba(244,239,228,0.04);
+    position: relative;
+  }
+
+  .comp-item-num {
+    font-family: var(--mono);
+    font-size: 48px;
+    color: rgba(184,151,90,0.15);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .comp-item-title {
+    font-family: var(--display);
+    font-size: 24px;
+    color: var(--cream);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  .comp-item-desc {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--cream-muted);
+    line-height: 1.9;
+  }
+
+  /* ─── PRINCIPLES ─── */
+  .principles-list {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .principle-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 40px 0;
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  .principle-row:last-child {
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .principle-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    min-width: 32px;
+    padding-top: 4px;
+  }
+
+  .principle-title {
+    font-family: var(--display);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--forest);
+    min-width: 280px;
+    line-height: 1.2;
+  }
+
+  .principle-body {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--forest-mid);
+    line-height: 1.9;
+    flex: 1;
+  }
+
+  /* ─── THE STACK VISUAL ─── */
+  .stack-visual {
+    background: var(--forest-mid);
+    padding: 80px 60px;
+    text-align: center;
+  }
+
+  .stack-visual .section-title {
+    color: var(--cream);
+  }
+
+  .stack-boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 60px;
+  }
+
+  .stack-box {
+    padding: 48px 60px;
+    position: relative;
+  }
+
+  .stack-box.elec {
+    background: var(--forest);
+    border: 1px solid rgba(184,151,90,0.3);
+  }
+
+  .stack-box.plus-sign {
+    font-family: var(--display);
+    font-size: 48px;
+    color: var(--gold);
+    padding: 0 32px;
+    background: transparent;
+  }
+
+  .stack-box.pre {
+    background: var(--cream);
+    border: 1px solid rgba(28,43,26,0.2);
+  }
+
+  .stack-box-title {
+    font-family: var(--display);
+    font-size: 28px;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .stack-box.elec .stack-box-title { color: var(--cream); }
+  .stack-box.pre .stack-box-title { color: var(--forest); }
+
+  .stack-box-sub {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .stack-box.elec .stack-box-sub { color: var(--gold); }
+  .stack-box.pre .stack-box-sub { color: var(--forest-light); }
+
+  .stack-result {
+    margin-top: 48px;
+    font-family: var(--display);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ─── ONBOARDING STEPS ─── */
+  .onboarding-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .onboarding-step {
+    background: var(--cream-dark);
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .onboarding-step-num {
+    font-family: var(--mono);
+    font-size: 64px;
+    color: rgba(28,43,26,0.08);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .onboarding-step-title {
+    font-family: var(--display);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--forest);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .onboarding-step-body {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    line-height: 1.9;
+    color: var(--forest-mid);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--forest);
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-brand {
+    font-family: var(--display);
+    font-size: 32px;
+    font-style: italic;
+    color: var(--cream);
+  }
+
+  .footer-contact {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--cream-muted);
+    line-height: 2.2;
+    text-align: right;
+  }
+
+  .footer-contact a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ─── UTILITY ─── */
+  .gold { color: var(--gold); }
+  .cream { color: var(--cream); }
+
+  @media (max-width: 900px) {
+    .cover { padding: 40px; }
+    .section { padding: 60px 40px; }
+    .section-full { padding: 60px 40px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .script-grid { grid-template-columns: 1fr; }
+    .caption-grid { grid-template-columns: 1fr; }
+    .hashtag-cols { grid-template-columns: 1fr; }
+    .comp-grid { grid-template-columns: 1fr; }
+    .onboarding-steps { grid-template-columns: 1fr 1fr; }
+    .stack-boxes { flex-direction: column; }
+    .principle-row { flex-direction: column; gap: 16px; }
+  }
+
+  /* Print refinements */
+  @media print {
+    .cover { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ░░░ COVER ░░░ -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Adherence Studio</div>
+    <div class="cover-label">Creator Content Bible · 2025</div>
+  </div>
+
+  <div class="cover-center">
+    <div class="cover-eyebrow">Confidential · Founding Creator Cohort</div>
+    <div class="cover-title">Make Them</div>
+    <div class="cover-sub"><span>Taste It</span> Through<br>the Screen.</div>
+    <div class="cover-divider"></div>
+    <div class="cover-tagline">
+      Everything you need to create content that stops the scroll,<br>
+      builds a ritual, and sells without feeling like an ad.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-rule">Electrolytes+ · Pre-Workout+ · The Stack</div>
+    <div class="cover-edition">
+      adherencestudio.com<br>
+      clintons@adherencestudio.com
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ MANIFESTO ░░░ -->
+<div class="manifesto-block">
+  <div class="manifesto-text" style="max-width:900px; margin: 0 auto;">
+    The wellness aisle is full of products that work.<br>
+    <strong>None of them taste like anything worth filming.</strong><br>
+    We fixed that. Your job is to let the world know.
+  </div>
+</div>
+
+<!-- ░░░ WHO WE ARE ░░░ -->
+<section class="section">
+  <span class="section-number">01 · Brand Foundation</span>
+  <h2 class="section-title">Built on the Belief That <em>Taste</em><br>and Clean Belong Together.</h2>
+  <p class="section-intro">Adherence Studio exists because the highest-performing people in the world still deserve something that tastes extraordinary. Clean formula, premium ingredients, and the kind of flavor that makes your morning routine worth filming.</p>
+
+  <div class="principles-list">
+    <div class="principle-row">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Taste is the Unfair Advantage</div>
+      <div class="principle-body">Every other hydration brand leads with science. We lead with the sip. The first second someone tastes Electrolytes+ is the moment they become a customer. Your content captures that second.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Clean Isn't a Claim, It's the Standard</div>
+      <div class="principle-body">Zero sugar. No artificial dyes. No jitters. Natural caffeine. We don't brag about what we left out. We let the formula speak through the performance, and we let you speak to how it feels.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Ritual Drives Retention</div>
+      <div class="principle-body">The goal isn't a one-time purchase. It's a daily habit. The most powerful content you can create shows these products as the anchor of a real, aspirational routine. Morning, training, recovery. This is the stack that makes your day make sense.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ PRODUCT OVERVIEW ░░░ -->
+<section class="section-full" style="background: var(--white);">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <span class="section-number">02 · The Products</span>
+    <h2 class="section-title">Two Products. <em>One System.</em></h2>
+    <p class="section-intro">Each stands alone. Together they become the non-negotiable foundation of a high-performance day.</p>
+
+    <div class="product-grid">
+      <!-- ELECTROLYTES+ -->
+      <div class="product-card elec">
+        <div class="product-card-flag">Electrolytes+</div>
+        <div class="product-card-name">The Best-Tasting<br>Hydration. Period.</div>
+        <div class="product-card-claim">Premium Hydration · Mental Clarity</div>
+        <ul class="product-benefit-list">
+          <li>Makes plain water something you actually look forward to every single morning</li>
+          <li>B-vitamin complex for sustained mental clarity without the crash</li>
+          <li>Zero sugar — nothing fake, nothing that slows you down</li>
+          <li>The taste is the product. Lead with this in every piece of content.</li>
+          <li>Think: Liquid IV if it actually tasted good and wasn't full of sugar</li>
+        </ul>
+        <div class="product-hook">
+          "I didn't know hydration could taste like this. I thought functional had to taste functional."
+        </div>
+      </div>
+
+      <!-- PRE-WORKOUT+ -->
+      <div class="product-card pre">
+        <div class="product-card-flag">Pre-Workout+</div>
+        <div class="product-card-name">Energy Built for<br>How You Move.</div>
+        <div class="product-card-claim">Smooth Energy · No Jitters · Pilates Ready</div>
+        <ul class="product-benefit-list">
+          <li>Natural caffeine from green tea — smooth energy curve, no spike and crash</li>
+          <li>Zero jitter formula designed for Pilates, yoga, barre, and tennis</li>
+          <li>Not built for the gym bro. Built for the woman who trains with intention</li>
+          <li>Pairs perfectly with Electrolytes+ as the daily two-step ritual</li>
+          <li>Think: the pre-workout that finally belongs on an Alo shelf</li>
+        </ul>
+        <div class="product-hook">
+          "I used to skip pre-workout because I'd be shaking through reformer. This changed everything."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ THE STACK ░░░ -->
+<div class="stack-visual">
+  <span class="section-number" style="color: var(--gold);">The Complete Ritual</span>
+  <h2 class="section-title" style="color: var(--cream);">The Stack Is the Story.</h2>
+  <p class="section-intro" style="color: var(--cream-muted); margin: 0 auto 0;">When you show both together, you're not showing two products. You're showing a lifestyle that performs.</p>
+
+  <div class="stack-boxes">
+    <div class="stack-box elec">
+      <div class="stack-box-title">Electrolytes+</div>
+      <div class="stack-box-sub">Hydrate · Clarify · Perform</div>
+    </div>
+    <div class="stack-box plus-sign">+</div>
+    <div class="stack-box pre">
+      <div class="stack-box-title">Pre-Workout+</div>
+      <div class="stack-box-sub">Energize · Focus · Move</div>
+    </div>
+  </div>
+  <div class="stack-result">= Your complete high-performance morning. Film it that way.</div>
+</div>
+
+<!-- ░░░ CONTENT FRAMEWORK ░░░ -->
+<div class="framework-strip">
+  <div class="framework-step">
+    <div class="framework-num">01</div>
+    <div class="framework-label"><strong>Entertain First</strong>Stop the scroll. Hook in second one. The product comes second, always.</div>
+  </div>
+  <div class="framework-arrow">→</div>
+  <div class="framework-step">
+    <div class="framework-num">02</div>
+    <div class="framework-label"><strong>Educate Naturally</strong>The taste story, the clean formula, the jitter-free energy. Let it emerge, never lecture.</div>
+  </div>
+  <div class="framework-arrow">→</div>
+  <div class="framework-step">
+    <div class="framework-num">03</div>
+    <div class="framework-label"><strong>Embed the Ritual</strong>Show it as a non-negotiable part of your actual day. Routine = relatability = sales.</div>
+  </div>
+  <div class="framework-arrow">→</div>
+  <div class="framework-step">
+    <div class="framework-num">04</div>
+    <div class="framework-label"><strong>Invite Action</strong>Soft CTA. Link, comment reply, or just "DM me." Never hard sell.</div>
+  </div>
+</div>
+
+<!-- ░░░ CONTENT PILLARS ░░░ -->
+<section class="section-full" style="background: var(--cream);">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <span class="section-number">03 · Content Pillars</span>
+    <h2 class="section-title">Seven Formats.<br><em>Infinite Angles.</em></h2>
+    <p class="section-intro">Every pillar is designed to feel native. Pick the three that match your voice and your audience. You only need three videos to qualify — but the best creators use all seven.</p>
+
+    <div class="pillars-grid">
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 01 · TikTok / Reels</div>
+        <div class="pillar-title">The Morning<br>Before Everything</div>
+        <div class="pillar-hook">"What I do before coffee, before my phone, before the world starts."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">Start with the water sound. The fizz. The pour. The taste reaction. No voiceover needed for the first three seconds. Let the sensory experience carry the hook. This is the morning content that actually converts.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 02 · Reels / TikTok</div>
+        <div class="pillar-title">Pre-Pilates<br>Prep Routine</div>
+        <div class="pillar-hook">"What I take before I step on the reformer. Every. Single. Time."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">This is the Pre-Workout+ hero format. The positioning is: "I tried every pre-workout. This is the only one that doesn't make me feel weird in a yoga class." Show the shake, show the class, show you finishing strong.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 03 · TikTok / Stories</div>
+        <div class="pillar-title">What's in My<br>Gym Bag</div>
+        <div class="pillar-hook">"Everything I bring to class — and why I'm never leaving home without these."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">The flatlay or bag dump format. Both products surface naturally. The visual sells itself. Lead with the aesthetic — green and cream on linen or a clean countertop photograph exceptionally well.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 04 · Reels / YouTube Shorts</div>
+        <div class="pillar-title">Get Ready<br>With Me</div>
+        <div class="pillar-hook">"My slow morning isn't complete without this. Here's the whole routine."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">Electrolytes+ belongs in the GRWM format as the "skin care for the inside" beat. Position it between skincare and coffee. Make it feel as natural as your SPF. The ritual framing is extremely strong for female audiences aged 22 to 38.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 05 · TikTok / Reels</div>
+        <div class="pillar-title">Taste Test<br>Honest Review</div>
+        <div class="pillar-hook">"I don't partner with things I don't actually drink. Here's my honest reaction."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">The first sip is the content. Film it unscripted. Real reactions — surprise, relief, genuine enjoyment — are ten times more convincing than anything produced. If you love the taste, that shows. Taste is the product's competitive moat. Film it like one.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 06 · TikTok / Reels</div>
+        <div class="pillar-title">Better Than<br>Pedialyte Morning</div>
+        <div class="pillar-hook">"Not hungover, just depleted. Electrolytes+ over everything."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">The cultural moment: Pedialyte was Gen Z's hangover drink before they graduated to caring about what was in it. Electrolytes+ is the upgrade. "I'm not 22 anymore, I need something that actually works and doesn't taste like a hospital." This angle drives massive reach.</div>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-type">Format 07 · TikTok / Reels / YouTube</div>
+        <div class="pillar-title">Full Day<br>Energy Routine</div>
+        <div class="pillar-hook">"How I stay consistent when life doesn't slow down. This is the system."</div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-caption-label">Viral Angle</div>
+        <div class="pillar-desc">The hero video. Both products anchor the beginning and middle of the day. Morning: Electrolytes+ before coffee. Pre-training: Pre-Workout+ before class. Evening reflection on how the day felt. This is the full brand story in one piece of content.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ SCRIPT BIBLE ░░░ -->
+<section class="script-section">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <span class="section-number">04 · Script Bible</span>
+    <h2 class="section-title">Beat-by-Beat.<br><em>Make It Yours.</em></h2>
+    <p class="section-intro">These aren't scripts. They're frameworks. Take the structure, lose the words. Your voice is the most important variable in every piece of content you make.</p>
+
+    <div class="script-grid">
+
+      <!-- SCRIPT 01 -->
+      <div class="script-card">
+        <div class="script-card-header">
+          <div class="script-card-title">The Morning<br>Ritual Video</div>
+          <div class="script-card-product">Electrolytes+<br>Hero</div>
+        </div>
+        <div class="script-card-body">
+          <div class="script-hooks">
+            <div class="script-hooks-label">Hook Options (first 2 seconds — no exceptions)</div>
+            <div class="script-hook-option">"This is the only thing I do before I touch my phone."</div>
+            <div class="script-hook-option">"I stopped drinking coffee first. Here's what I do instead."</div>
+            <div class="script-hook-option">"The morning habit that changed how the rest of my day feels."</div>
+          </div>
+
+          <div class="script-beat" style="margin-top: 24px;">
+            <div class="script-beat-time">0–3s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Hook</div>
+              <div class="script-beat-text">Deliver your hook while you're shown pouring or mixing. Sound-on is the goal. The fizz or the pour is your B-roll hook.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">3–8s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Context</div>
+              <div class="script-beat-text">"I've been doing this every morning for [timeframe] and I need to talk about what it's actually done for me."</div>
+              <div class="script-beat-direction">Show product in your hand, close-up of label optional. Natural light, countertop, or bathroom vanity.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">8–18s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">The Taste Moment</div>
+              <div class="script-beat-text">First sip. Filmed. Real reaction. This is the most important three seconds of the entire video. Don't over-produce it.</div>
+              <div class="script-beat-direction">Film unscripted. If you love it, it shows. That authenticity is worth more than any polished production.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">18–30s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Education (soft)</div>
+              <div class="script-beat-text">"What I love is it's actually clean — no sugar, no junk. And it tastes better than anything else I've tried."</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">30–45s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">CTA</div>
+              <div class="script-beat-text">"Link in bio. Code [yourname] for a discount. You'll understand why the second you try it."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPT 02 -->
+      <div class="script-card">
+        <div class="script-card-header">
+          <div class="script-card-title">The Pre-Pilates<br>Prep Video</div>
+          <div class="script-card-product">Pre-Workout+<br>Hero</div>
+        </div>
+        <div class="script-card-body">
+          <div class="script-hooks">
+            <div class="script-hooks-label">Hook Options (first 2 seconds — no exceptions)</div>
+            <div class="script-hook-option">"I finally found a pre-workout that doesn't make me shake through reformer."</div>
+            <div class="script-hook-option">"This is what I take before every Pilates class. Three months in."</div>
+            <div class="script-hook-option">"Regular pre-workout makes me feel insane in a yoga class. This doesn't."</div>
+          </div>
+
+          <div class="script-beat" style="margin-top: 24px;">
+            <div class="script-beat-time">0–3s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Hook</div>
+              <div class="script-beat-text">Deliver hook in workout clothes, bag packed, shaker in hand. Visual context signals what type of training content this is immediately.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">3–10s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">The Problem</div>
+              <div class="script-beat-text">"Most pre-workouts are built for powerlifting. I do Pilates three times a week and I needed something that matched the way I train — intentional, controlled, no crash."</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">10–20s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">The Product</div>
+              <div class="script-beat-text">Show mixing, show label briefly, first sip, genuine taste reaction. The clean energy angle is the key differentiator — say "natural caffeine from green tea" once, naturally.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">20–35s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Training B-Roll</div>
+              <div class="script-beat-text">Cut to you at the studio, in class, or training. "The difference in how I feel going in ready versus just showing up — it's real." Show the result, not just the product.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">35–45s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">CTA + Stack Mention</div>
+              <div class="script-beat-text">"I stack this with Electrolytes+ every morning. Link in bio, code [yourname] gets you [discount]. This is the stack."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPT 03 -->
+      <div class="script-card">
+        <div class="script-card-header">
+          <div class="script-card-title">Taste Test /<br>Honest Review</div>
+          <div class="script-card-product">Both Products<br>Unboxing</div>
+        </div>
+        <div class="script-card-body">
+          <div class="script-hooks">
+            <div class="script-hooks-label">Hook Options</div>
+            <div class="script-hook-option">"I've tried every wellness drink on the market. I need to tell you about this one."</div>
+            <div class="script-hook-option">"Electrolytes that actually taste good? Let me show you."</div>
+            <div class="script-hook-option">"They sent me this. I was skeptical. I've been drinking it every day since."</div>
+          </div>
+
+          <div class="script-beat" style="margin-top: 24px;">
+            <div class="script-beat-time">0–3s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Hook + Product in Frame</div>
+              <div class="script-beat-text">Product visible immediately. Your reaction to it establishes the entire tone of the video.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">3–15s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Honest Setup</div>
+              <div class="script-beat-text">"I'm going to be real with you. I don't post partnerships for things I don't actually use. I've been using both of these for [timeframe] and this is what I actually think."</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">15–35s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">The Taste Moment — Both Products</div>
+              <div class="script-beat-text">Electrolytes+ first (morning ritual framing), then Pre-Workout+ (training framing). Real reactions only. Compare flavor to something familiar and better: "It tastes like a luxury sparkling water, not a supplement."</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">35–50s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">One Clean Claim + CTA</div>
+              <div class="script-beat-text">"Zero sugar, no artificial anything, and it actually tastes good. That doesn't exist anywhere else. Link in bio."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPT 04 -->
+      <div class="script-card">
+        <div class="script-card-header">
+          <div class="script-card-title">Better Than<br>Pedialyte</div>
+          <div class="script-card-product">Electrolytes+<br>Reach Format</div>
+        </div>
+        <div class="script-card-body">
+          <div class="script-hooks">
+            <div class="script-hooks-label">Hook Options (cultural moment format)</div>
+            <div class="script-hook-option">"Pedialyte era is over. Let me show you what I replaced it with."</div>
+            <div class="script-hook-option">"I'm too old to be drinking a children's recovery drink. This is the upgrade."</div>
+            <div class="script-hook-option">"The wellness drink girlies switched to when they outgrew Liquid IV."</div>
+          </div>
+
+          <div class="script-beat" style="margin-top: 24px;">
+            <div class="script-beat-time">0–3s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Cultural Hook</div>
+              <div class="script-beat-text">Optional prop: hold up a Pedialyte or LiquidIV competitor package briefly and set it down. The visual comparison creates immediate context and scroll-stopping tension.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">3–12s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">The Problem with the Category</div>
+              <div class="script-beat-text">"They all either taste like medicine, or they're loaded with sugar or artificial sweeteners. I started actually reading labels and I had to find something better."</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">12–25s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">Taste + Clean Moment</div>
+              <div class="script-beat-text">First sip reaction. "It tastes like it's actually good for you, which shouldn't be a surprise but somehow still is." Clean label close-up optional.</div>
+            </div>
+          </div>
+
+          <div class="script-beat">
+            <div class="script-beat-time">25–40s</div>
+            <div class="script-beat-content">
+              <div class="script-beat-label">CTA</div>
+              <div class="script-beat-text">"It's called Adherence Studio. Link in bio. Code [yourname]. This is the one."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ CAPTION TOOLKIT ░░░ -->
+<section class="caption-section">
+  <span class="section-number">05 · Caption Toolkit</span>
+  <h2 class="section-title">Words That <em>Convert.</em></h2>
+  <p class="section-intro">Captions are the second hook. Write them like the video already has someone's attention. Your job is to keep it and push them to act.</p>
+
+  <div class="caption-grid">
+
+    <div class="caption-block">
+      <span class="caption-block-label">Formula 01 · The Story Open</span>
+      <div class="caption-formula">
+        <strong>[Relatable statement or confession]</strong><br>
+        [what changed / what you tried]<br>
+        [the real reason it works]<br>
+        <strong>[CTA — soft, never desperate]</strong>
+      </div>
+      <div class="caption-example-label">Example</div>
+      <div class="caption-example">
+        "I was a Liquid IV person for two years.<br>
+        Until I read what was in it.<br>
+        Been on Electrolytes+ every morning since and I genuinely notice the difference in how I feel by noon.<br>
+        Zero sugar, B vitamins, and it actually tastes good. Link in bio — code [name] saves you."
+      </div>
+    </div>
+
+    <div class="caption-block">
+      <span class="caption-block-label">Formula 02 · The Sensory Lead</span>
+      <div class="caption-formula">
+        <strong>[Taste or sensory description]</strong><br>
+        [unexpected contrast — this doesn't taste "functional"]<br>
+        [ritual framing — when you have it]<br>
+        <strong>[CTA]</strong>
+      </div>
+      <div class="caption-example-label">Example</div>
+      <div class="caption-example">
+        "It tastes like a luxury sparkling water decided to also hydrate you properly.<br>
+        Zero sugar. No weird aftertaste.<br>
+        First thing every morning before my phone touches my hand.<br>
+        @adherencestudio — link in bio."
+      </div>
+    </div>
+
+    <div class="caption-block">
+      <span class="caption-block-label">Formula 03 · The Aspirational Contrast</span>
+      <div class="caption-formula">
+        <strong>[Who this isn't for]</strong><br>
+        [who this is exactly for]<br>
+        [what it does differently]<br>
+        <strong>[CTA + stack mention]</strong>
+      </div>
+      <div class="caption-example-label">Example</div>
+      <div class="caption-example">
+        "This pre-workout was not made for people chasing a pump at 5am.<br>
+        It was made for people who train with intention — Pilates, yoga, barre, reformer.<br>
+        Natural caffeine, no jitters, smooth energy that lasts.<br>
+        I stack it with Electrolytes+ every morning. It's the system."
+      </div>
+    </div>
+
+    <div class="caption-block">
+      <span class="caption-block-label">Formula 04 · The Honest Voice</span>
+      <div class="caption-formula">
+        <strong>[Admission / trust anchor]</strong><br>
+        [specific detail that shows you actually use it]<br>
+        [the claim you can stand behind]<br>
+        <strong>[Invitation, not push]</strong>
+      </div>
+      <div class="caption-example-label">Example</div>
+      <div class="caption-example">
+        "I don't post about wellness products I don't actually use. I've been through both bags of this.<br>
+        The taste is genuinely why I keep buying it. The clean ingredients are why I feel good about it.<br>
+        Electrolytes+ and Pre-Workout+. Link in bio. Worth trying once."
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░░ HASHTAG TOOLKIT ░░░ -->
+<section class="hashtag-section">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <span class="section-number" style="color: var(--gold);">06 · Hashtag Toolkit</span>
+    <h2 class="section-title" style="color: var(--cream);">Reach the Right <em>People.</em></h2>
+    <p class="section-intro" style="color: var(--cream-muted);">Use 8 to 12 hashtags per post. Mix tiers. Never use more than 3 branded tags. Relevance beats volume every time.</p>
+
+    <div class="hashtag-cols">
+      <div>
+        <div class="hashtag-col-title">High Reach · Awareness</div>
+        <div class="hashtag-list">
+          <span class="hashtag-tag">#pilateslifestyle</span>
+          <span class="hashtag-tag">#morningroutine</span>
+          <span class="hashtag-tag">#wellnessroutine</span>
+          <span class="hashtag-tag">#cleanenergy</span>
+          <span class="hashtag-tag">#healthyhabits</span>
+          <span class="hashtag-tag">#pilatesgirls</span>
+          <span class="hashtag-tag">#yogalife</span>
+          <span class="hashtag-tag">#functionalwellness</span>
+          <span class="hashtag-tag">#cleaningredients</span>
+          <span class="hashtag-tag">#wellnessgirls</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="hashtag-col-title">Mid Reach · Qualified Audience</div>
+        <div class="hashtag-list">
+          <span class="hashtag-tag primary">#electrolytes</span>
+          <span class="hashtag-tag primary">#preworkout</span>
+          <span class="hashtag-tag">#hydrationtips</span>
+          <span class="hashtag-tag">#pilatesaesthetic</span>
+          <span class="hashtag-tag">#morningritual</span>
+          <span class="hashtag-tag">#grwm</span>
+          <span class="hashtag-tag">#whatsinmybag</span>
+          <span class="hashtag-tag">#slowmorning</span>
+          <span class="hashtag-tag primary">#cleanpreworkout</span>
+          <span class="hashtag-tag">#pilatesbody</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="hashtag-col-title">Branded · Always Include</div>
+        <div class="hashtag-list">
+          <span class="hashtag-tag primary">#adherencestudio</span>
+          <span class="hashtag-tag primary">#electrolytesplus</span>
+          <span class="hashtag-tag primary">#preworkoutplus</span>
+          <span class="hashtag-tag">#thestack</span>
+          <span class="hashtag-tag">#adherencecreator</span>
+        </div>
+
+        <div style="margin-top: 32px;">
+          <div class="hashtag-col-title">Trending Formats</div>
+          <div class="hashtag-list">
+            <span class="hashtag-tag">#studywithme</span>
+            <span class="hashtag-tag">#antihangover</span>
+            <span class="hashtag-tag">#workouttok</span>
+            <span class="hashtag-tag">#betterthanpedialyte</span>
+            <span class="hashtag-tag">#liquidivdupe</span>
+            <span class="hashtag-tag">#pilatesaesthetic</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ CONTENT PRINCIPLES ░░░ -->
+<section class="section">
+  <span class="section-number">07 · Content Principles</span>
+  <h2 class="section-title">What Makes Content <em>Work.</em></h2>
+  <p class="section-intro">These aren't guidelines. They're the difference between content that gets watched once and content that sells for months.</p>
+
+  <div class="principles-list">
+    <div class="principle-row">
+      <div class="principle-num">01</div>
+      <div class="principle-title">The Taste Reaction is the Ad</div>
+      <div class="principle-body">Electrolytes+ wins because it tastes extraordinary for something with nothing in it. Film your first sip unscripted. Film the first sip of a friend who's never tried it. That reaction is worth more than any talking-head explanation about electrolyte science. Lead with sensation, always.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Entertain First, Educate Second</div>
+      <div class="principle-body">If you open with "Electrolytes are important for hydration," you've already lost them. Open with something that makes someone pause the scroll. The taste, the routine, the unexpected detail. Then, once you have them, teach them something. In that order, every time.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Show the Ritual, Not the Product</div>
+      <div class="principle-body">The most powerful frame is: "I can't start my morning without this." Not "this product has B vitamins." Ritual content converts because it creates aspiration and relatability simultaneously. Your audience doesn't want to buy a supplement — they want to live the way you live.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">04</div>
+      <div class="principle-title">Pre-Workout+ is a Category Redefinition</div>
+      <div class="principle-body">Every existing pre-workout is built for a gym bro. Pre-Workout+ is built for someone who trains with intention — reformer, mat, barre, tennis. Position it that way. "This is the first pre-workout that doesn't feel wrong in a Pilates studio" is a story that no competitor can tell. Own it.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Show the Stack When You Can</div>
+      <div class="principle-body">Featuring both products in one piece of content tells the complete brand story. Morning Electrolytes+, pre-class Pre-Workout+. It's a higher-converting format because it shows the full system, and it doubles the AOV when someone clicks through to buy.</div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">06</div>
+      <div class="principle-title">Authenticity is the Production Value</div>
+      <div class="principle-body">Real moments outperform produced ads. A real taste reaction in a kitchen that looks lived-in will outperform a perfect studio setup with a scripted line. Your voice, your style, your space. That's the content brief. Everything else is optional.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ WHAT YOU GET ░░░ -->
+<section class="comp-section">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <span class="section-number" style="color: var(--gold);">08 · Your Partnership</span>
+    <h2 class="section-title" style="color: var(--cream);">What You Get <em>When You Perform.</em></h2>
+    <p class="section-intro" style="color: var(--cream-muted);">This is a founding cohort. The creators who build with us from the beginning are the ones who grow with us as the brand scales.</p>
+
+    <div class="comp-grid">
+      <div class="comp-item">
+        <div class="comp-item-num">01</div>
+        <div class="comp-item-title">Free Product. Always.</div>
+        <div class="comp-item-desc">Both Electrolytes+ and Pre-Workout+ shipped to you at no cost. Use them, live them, film them. We want you to be a genuine consumer first, creator second.</div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-item-num">02</div>
+        <div class="comp-item-title">15% Commission, Every Sale.</div>
+        <div class="comp-item-desc">Every sale you drive earns you 15%. There is no cap, no minimum threshold. The better your content performs, the more you earn. Simple.</div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-item-num">03</div>
+        <div class="comp-item-title">Paid Partnership Access.</div>
+        <div class="comp-item-desc">Top-performing creators move into longer-term paid relationships. Commission to retainer. This is the path for creators whose content converts consistently.</div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-item-num">04</div>
+        <div class="comp-item-title">Boosted Reach.</div>
+        <div class="comp-item-desc">High-performing content gets boosted on our channels and in paid media. Your organic content becomes a paid ad — increasing your discoverability and commissionable sales.</div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-item-num">05</div>
+        <div class="comp-item-title">Founding Creator Status.</div>
+        <div class="comp-item-desc">You are part of the founding cohort. As Adherence Studio grows, this matters. Early creators who helped build the brand are recognized, prioritized, and credited in the brand story.</div>
+      </div>
+
+      <div class="comp-item">
+        <div class="comp-item-num">06</div>
+        <div class="comp-item-title">Invite-Only Events.</div>
+        <div class="comp-item-desc">Select creators are invited to exclusive in-person events, brand shoots, and activations in LA. These are designed to create content, community, and connection with other high-performing creators in the cohort.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ ONBOARDING ░░░ -->
+<section class="section">
+  <span class="section-number">09 · Getting Started</span>
+  <h2 class="section-title">Your First <em>Four Steps.</em></h2>
+  <p class="section-intro">From unboxing to your first posted video. Keep it simple. The best content usually happens in the first 48 hours — when everything is still new and your reactions are real.</p>
+
+  <div class="onboarding-steps">
+    <div class="onboarding-step">
+      <div class="onboarding-step-num">01</div>
+      <div class="onboarding-step-title">Receive and Try Both</div>
+      <div class="onboarding-step-body">Open your package and try both products as you would naturally — Electrolytes+ in the morning, Pre-Workout+ before your next training session. Film your reactions. Don't think about posting yet. Just experience them.</div>
+    </div>
+
+    <div class="onboarding-step">
+      <div class="onboarding-step-num">02</div>
+      <div class="onboarding-step-title">Pick Your First Format</div>
+      <div class="onboarding-step-body">Choose one of the seven content pillars that fits most naturally with your existing content style. If you do morning content, start with the Morning Ritual. If you post fitness, start with Pre-Pilates Prep. Do not overthink this.</div>
+    </div>
+
+    <div class="onboarding-step">
+      <div class="onboarding-step-num">03</div>
+      <div class="onboarding-step-title">Film, Post, Tag</div>
+      <div class="onboarding-step-body">Tag @adherencestudio and use your unique affiliate code in the caption. Include 8 to 12 hashtags from the toolkit. Post natively on your best-performing platform first. Then repurpose.</div>
+    </div>
+
+    <div class="onboarding-step">
+      <div class="onboarding-step-num">04</div>
+      <div class="onboarding-step-title">Send Us the Links</div>
+      <div class="onboarding-step-body">Share your posted content with clintons@adherencestudio.com. High-performing videos get boosted. Top creators get reached out to for paid partnerships. The best time to perform is right now.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ FOOTER ░░░ -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">Adherence Studio.</div>
+    <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: rgba(244,239,228,0.3); margin-top: 8px; text-transform: uppercase;">Precision Hydration · Clean Energy · Built Without Compromise</div>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:clintons@adherencestudio.com">clintons@adherencestudio.com</a><br>
+    <a href="https://www.adherencestudio.com">www.adherencestudio.com</a><br>
+    <span style="color: rgba(244,239,228,0.3);">Creator Content Bible · Founding Cohort · Confidential</span>
+  </div>
+</footer>
+
+</body>
+</html>
